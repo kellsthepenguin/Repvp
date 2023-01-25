@@ -1,0 +1,4 @@
+name: Repvp
+version: '${version}'
+main: co.kellsthepenguin.repvp.Repvp
+api-version: 1.19
