@@ -37,6 +37,15 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
+task copyJar {
+    copy {
+        from jar
+        into "e:/mc/plugins/"
+    }
+}
+
+build.finalizedBy copyJar
+
 processResources {
     def props = [version: version]
     inputs.properties props
