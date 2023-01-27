@@ -13,12 +13,11 @@ import java.util.HashMap;
 public class PvpCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             sender.sendMessage("Player only command");
             return true;
         }
 
-        Player player = ((Player) sender);
         HashMap<String, Subcommand> subcommands = Repvp.getInstance().getSubCommands();
 
         if (args.length < 1) {
