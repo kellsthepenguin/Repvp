@@ -15,6 +15,7 @@ public final class Repvp extends JavaPlugin {
         instance = this;
         this.saveDefaultConfig();
         this.getCommand("pvp").setExecutor(new PvpCommand());
+        this.getCommand("pvp").setTabCompleter(new PvpTabCompleter());
         subcommands.put("create", new Create());
     }
 
