@@ -12,16 +12,16 @@ public class Create implements Subcommand {
 
     @Override
     public void execute(Player p, String[] args) {
-        if (args.length < 2) {
-            p.sendMessage(ChatColor.RED + "Not enough args");
-            return;
-        }
-
         Repvp plugin = Repvp.getInstance();
         FileConfiguration config = plugin.getConfig();
 
         switch (args[0]) {
             case "kit" -> {
+                if (args.length < 2) {
+                    p.sendMessage(ChatColor.RED + "Usage: /pvp createkit <name>");
+                    return;
+                }
+
                 ItemStack[] contents = p.getInventory().getContents();
                 config.set("kits." + args[1], contents);
                 plugin.saveConfig();
@@ -30,7 +30,7 @@ public class Create implements Subcommand {
             }
             case "mode" -> {
                 if (args.length < 13) {
-                    p.sendMessage(ChatColor.RED + "Not enough args");
+                    p.sendMessage(ChatColor.RED + "Usage: /pvp createmode <name> <kit> <schem> <px> <py> <pz> <fx> <fy> <fz> <sx> <sy> <sz>");
                     return;
                 }
 
